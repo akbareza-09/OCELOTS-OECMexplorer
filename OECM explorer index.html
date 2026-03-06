@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OECM | Coral Triangle</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: { 50: '#f0f9ff', 100: '#e0f2fe', 500: '#0ea5e9', 800: '#075985', 900: '#0c4a6e' },
+                        coral: { 400: '#fb7185', 500: '#f43f5e', 600: '#e11d48' },
+                        seagrass: { 500: '#14b8a6', 600: '#0d9488' }
+                    },
+                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        .chart-container { position: relative; width: 100%; height: 350px; }
+        
+        /* Floating Box for Spider Map Labels */
+        #chart-tooltip {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.95);
+            color: white;
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            pointer-events: none;
+            display: none;
+            z-index: 1000;
+            max-width: 240px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            line-height: 1.5;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- Chosen Palette: Coastal Professional (Ocean 900, Coral 500, Seagrass 500) -->
+    
+    <!-- Application Structure Plan: 
+    1. Navigation with UGM link.
+    2. Side-by-Side Comparison: Spider chart and table are now in a 2-column grid for direct visual correlation.
+    3. Thematic Pathways: Sections updated with paraphrased high-fidelity definitions provided.
+    4. Hover Logic: Custom JS listeners on Chart.js label positions for the "Floating Box" effect.
+    -->
+
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Navigation -->
+    <nav class="bg-ocean-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                                    </div>
+                <div class="flex items-center space-x-4">
+                    <a href="https://www.ugm.ac.id" class="bg-white/10 hover:bg-white/20 border border-white/20 px-4 py-2 rounded-lg text-sm transition font-medium">
+                        ← Back to Case Study
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-ocean-800 text-white py-16 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">OECM in the Coral Triangle</h1>
+            <p class="text-ocean-100 opacity-90 max-w-2xl mx-auto italic">
+                OECM is defined as a geographically defined area other than a Protected Area, which is governed and managed in ways that achieve positive and sustained long-term outcomes for the in-situ conservation of biodiversity with associated ecosystem functions and services and where applicable, cultural, spiritual, socio–economic, and other locally relevant values.
+            </p>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto w-full px-4 py-12 space-y-16">
+
+<!-- SECTION 1: Criteria A-D with Hover Notes (Using pure Tailwind for robustness) -->
+        <section id="definition">
+            <div class="mb-8 border-l-4 border-coral-500 pl-4">
+                <h2 class="text-2xl font-bold text-ocean-900 uppercase tracking-tight">The Core Criteria</h2>
+                <p class="text-slate-500 text-sm italic"> The CBD criteria and sub-criteria for identifying an OECM with explanatory notes. Hover cards to reveal concise exploratory notes.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Criterion A -->
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-ocean-500 transition-all cursor-default relative">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-ocean-100 text-ocean-700 flex items-center justify-center font-bold text-sm">A</span>
+                        <h3 class="font-bold text-slate-800">Not a Protected Area</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">The site is not currently recorded in formal national MPA databases.</p>
+                    
+                    <!-- Fixed Hover Reveal -->
+                    <div class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-48 group-hover:opacity-100 group-hover:mt-3">
+                        <div class="text-[11px] leading-relaxed text-ocean-700 bg-ocean-50 p-3 rounded-lg border border-ocean-100">
+                            OECMs provide recognition for conservation occurring outside the formal protected area network, avoiding dual-classification.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Criterion B -->
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-coral-500 transition-all cursor-default relative">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-coral-100 text-coral-700 flex items-center justify-center font-bold text-sm">B</span>
+                        <h3 class="font-bold text-slate-800">Governed & Managed</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">Must have a geographically defined boundary and legitimate governance.</p>
+                    
+                    <!-- Fixed Hover Reveal -->
+                    <div class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-48 group-hover:opacity-100 group-hover:mt-3">
+                        <div class="text-[11px] leading-relaxed text-coral-700 bg-coral-50 p-3 rounded-lg border border-coral-100">
+                            Requires a clear geographic area with management intended for the long-term. In Raja Ampat, <strong>Sasi</strong> closures are temporary, but the governance behind them is permanent (Criterion B).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Criterion C -->
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-seagrass-500 transition-all cursor-default relative">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-seagrass-100 text-seagrass-700 flex items-center justify-center font-bold text-sm">C</span>
+                        <h3 class="font-bold text-slate-800">Effective Outcomes</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">Must deliver positive and sustained long-term biodiversity outcomes.</p>
+                    
+                    <!-- Fixed Hover Reveal -->
+                    <div class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-48 group-hover:opacity-100 group-hover:mt-3">
+                        <div class="text-[11px] leading-relaxed text-seagrass-700 bg-seagrass-50 p-3 rounded-lg border border-seagrass-100">
+                            Unlike MPAs which are judged on intent, OECMs are defined by their <strong>outcomes</strong>. Recognition requires verifiable evidence that biodiversity is maintained.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Criterion D -->
+                <div class="group bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-500 transition-all cursor-default relative">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">D</span>
+                        <h3 class="font-bold text-slate-800">Holistic Values</h3>
+                    </div>
+                    <p class="text-xs text-slate-500">Supports ecosystem services and cultural/spiritual values.</p>
+                    
+                    <!-- Fixed Hover Reveal -->
+                    <div class="max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-48 group-hover:opacity-100 group-hover:mt-3">
+                        <div class="text-[11px] leading-relaxed text-amber-700 bg-amber-50 p-3 rounded-lg border border-amber-100">
+                            OECMs often arise from social, economic, and cultural values (like food security or sacred sites) which are integral to the area’s success.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Side-by-Side Comparison -->
+        <section id="comparison">
+            <div class="mb-8 border-l-4 border-coral-500 pl-4">
+                <h2 class="text-2xl font-bold text-ocean-900 uppercase tracking-tight">Structural Comparison: MPA vs OECM</h2>
+                <p class="text-slate-500 text-sm">Comparison based on design intent and governance frameworks.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Spider Chart Column -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col relative">
+                    <h3 class="text-center font-bold text-slate-700 mb-6">Governance & Intent Map</h3>
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                    <!-- Floating box for label descriptions -->
+                    <div id="chart-tooltip"></div>
+                    
+                    <div class="mt-auto pt-6 border-t border-slate-100">
+                        <p class="text-[10px] text-slate-400 leading-tight italic">
+                            <strong>Disclaimer:</strong> Scores reflect design intent and formal mandate, not realized outcomes. In practice, MPAs frequently underperform due to insufficient enforcement budgets, low staffing, and weak compliance — the so-called 'paper park' problem. OECMs governed by resource-dependent communities may achieve stronger realized outcomes despite lower formal mandate scores.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Table Column -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <table class="w-full text-left border-collapse flex-grow">
+                        <thead>
+                            <tr class="bg-ocean-900 text-white text-xs uppercase tracking-wider">
+                                <th class="p-4 border-b">Feature</th>
+                                <th class="p-4 border-b">MPA</th>
+                                <th class="p-4 border-b">OECM</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm">
+                            <tr class="hover:bg-slate-50 border-b border-slate-100">
+                                <td class="p-4 font-semibold text-slate-800">Primary Objective</td>
+                                <td class="p-4 text-slate-600">Must be nature conservation.</td>
+                                <td class="p-4 text-slate-600">Flexible (Sustainable use, cultural, military, private, etc).</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 border-b border-slate-100">
+                                <td class="p-4 font-semibold text-slate-800">Conservation Outcome</td>
+                                <td class="p-4 text-slate-600">Mandatory & verified with strict assessment.</td>
+                                <td class="p-4 text-slate-600">Mandatory & verified with wide adaptive assessment.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 border-b border-slate-100">
+                                <td class="p-4 font-semibold text-slate-800">Governance Type</td>
+                                <td class="p-4 text-slate-600">State-led/Formal.</td>
+                                <td class="p-4 text-slate-600">Diverse (Indigenous, Local, Private).</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-4 font-semibold text-slate-800">Recognition Criteria</td>
+                                <td class="p-4 text-slate-600">Based on legal status.</td>
+                                <td class="p-4 text-slate-600">Based on existing sustained impact.</td>
+                            </tr>
+<tr class="hover:bg-slate-50 border-b border-slate-100">
+    <td class="p-4 font-semibold text-slate-800">Enforcement Basis</td>
+    <td class="p-4 text-slate-600">State authority (rangers, regulations).</td>
+    <td class="p-4 text-slate-600">Community norms, social sanctions, cultural rules.</td>
+</tr>
+                        </tbody>
+                    </table>
+                    <div class="bg-slate-50 p-4 text-xs text-slate-500">
+                        *Source: CBD Decision 14/8 and IUCN WCPA Guidelines.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: Detailed Pathways -->
+        <section id="pathways" class="space-y-10">
+            <div class="mb-8 border-l-4 border-seagrass-500 pl-4">
+                <h2 class="text-2xl font-bold text-ocean-900 uppercase tracking-tight">OECM Conservation Objectives</h2>
+                <p class="text-slate-500 text-sm">How conservation outcome is achieved across different management contexts.</p>
+            </div>
+
+            <div class="grid gap-6">
+                <!-- Primary -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full bg-ocean-100 text-ocean-700 text-xs font-bold mb-4">
+                                PATHWAY 1
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Primary Conservation</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">
+                                These sites are managed with <strong>nature conservation as the main priority</strong>, yet they remain outside the formal "Protected Area" classification. Often, governing authorities like Indigenous peoples or local communities choose the OECM framework to gain recognition for their contributions without being absorbed into state databases or government-run systems.
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 bg-ocean-50/50 p-6 rounded-xl border border-ocean-100">
+                            <h4 class="font-bold text-ocean-900 mb-2 italic">Examples:</h4>
+                            <p class="text-sm text-slate-700">
+                                <strong>* Formal managed areas for conservation </strong>(e.g., world heritage, man and the biosphere, biosphere). <br> <strong>* Privately managed areas for conservation </strong> (e.g., private beach for reef restoration) 
+                            </p>
+<p class="text-sm text-slate-700">
+                                <strong>* Locally Managed Marine Areas (LMMAs):</strong> Some Indigenous and community-led territories (ICCA) in Phillipines declare zones where fishing or harvesting is permanently prohibited. By reporting as OECMs, communities maintain their sovereignty while fulfilling international conservation targets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full bg-coral-100 text-coral-700 text-xs font-bold mb-4">
+                                PATHWAY 2
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Secondary Conservation</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">
+                                In these areas, biodiversity protection is a <strong>secondary objective</strong> supporting a different primary goal. Examples include sites managed primarily for nature-based tourism or water catchment protection, where conserving the local ecosystem is essential to the success of the primary activity.
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 bg-coral-50/50 p-6 rounded-xl border border-coral-100">
+                            <h4 class="font-bold text-coral-900 mb-2 italic">Examples:</h4>
+                            <p class="text-sm text-slate-700">
+                                <strong>* Customary "Tara Bandu" (Timor Leste):</strong> Customary zones in Makili and Bikeli village  to regulate fishing. Fish stocks have recovered, aiding food security and eco-tourism.
+                            </p>
+<p class="text-sm text-slate-700">
+                                * <strong>Privately managed tourism areas</strong>: restoration mangrove area as part of corporate social responsibility (CSR) program, fisheries management area from the government, etc. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ancillary -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="md:w-1/2">
+                            <div class="inline-flex items-center px-3 py-1 rounded-full bg-seagrass-100 text-seagrass-700 text-xs font-bold mb-4">
+                                PATHWAY 3
+                            </div>
+                            <h3 class="text-2xl font-bold text-slate-800 mb-4">Ancillary Conservation</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">
+                                These sites deliver effective in situ conservation as an <strong>unintended by-product (ancillary outcome)</strong> of management, even though conservation isn't an explicit objective. This occurs in areas where human access is strictly limited for reasons like cultural taboos, historical preservation, or national security.
+                            </p>
+                        </div>
+                        <div class="md:w-1/2 bg-emerald-50/50 p-6 rounded-xl border border-emerald-100">
+                            <h4 class="font-bold text-emerald-900 mb-2 italic">Examples:</h4>
+                            <p class="text-sm text-slate-700">
+                                <strong>* Historical War Graves (Solomons):</strong> Access restrictions to WWII wreck sites intended for historical preservation create unintended "de facto" sanctuaries where coral and fish biomass thrive undisturbed by fishing pressure.
+                            </p>
+<p class="text-sm text-slate-700">
+                                <strong>* Military and Security Zones </strong>: Restricted coastal areas for naval exercises or defense purposes. Because these zones are closed to commercial fishing and coastal development for security reasons, they often harbor pristine reef ecosystems
+                            </p>
+<p class="text-sm text-slate-700">
+                               <strong> * Industrial Infrastructure Safety Zones </strong>: Areas around offshore oil platforms, wind farms, or subsea cables where anchoring and fishing are prohibited for safety. These act as de facto no-take zones, providing a refuge for fish populations.
+                            </p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<section id="resources">
+    <div class="mb-8 border-l-4 border-coral-500 pl-4">
+        <h2 class="text-2xl font-bold text-ocean-900 uppercase tracking-tight">Further Learning</h2>
+        <p class="text-slate-500 text-sm">Explore how communities across the Coral Triangle safeguard their seas</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Video 1 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <a href="https://www.youtube.com/watch?v=AfANgYbcGP4" target="_blank" class="block relative group">
+                <img 
+                    src="https://img.youtube.com/vi/AfANgYbcGP4/maxresdefault.jpg" 
+                    alt="Video 1 thumbnail"
+                    class="w-full aspect-video object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                        <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <div class="p-4">
+                <h3 class="font-bold text-slate-800 text-sm">Gwala Rising in the Bwanabwana Islands</h3>
+                <p class="text-xs text-slate-500 mt-1">The community of Anagusa Island in Papua New Guinea is combating the effects of climate change and protecting the coral reefs they rely on using gwala: the traditional practice of setting aside a reef or forest area to allow the ecosystem to recover. Gwala is helping the community of Anagusa Island prosper - empowering men and women with improved access to food and livelihoods.</p>
+            </div>
+        </div>
+        <!-- Video 2 -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <a href="https://www.youtube.com/watch?v=Zx6OS2zU2LM" target="_blank" class="block relative group">
+                <img 
+                    src="https://img.youtube.com/vi/Zx6OS2zU2LM/maxresdefault.jpg" 
+                    alt="Video 2 thumbnail"
+                    class="w-full aspect-video object-cover">
+                <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/50 transition">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center">
+                        <svg class="w-7 h-7 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </a>
+            <div class="p-4">
+                <h3 class="font-bold text-slate-800 text-sm">Sasi Opening in Ay Island</h3>
+                <p class="text-xs text-slate-500 mt-1">Customary "Sasi" is Traditional closures in Maluku Indonesia are primarily food security and harvest management measures. However, the secondary objective—protecting reef health—is vital for the long-term sustainability of those resources.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center text-xs">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026. Faculty of Biology Universitas Gadjah Mada - Ecology and Conservation Lab - Marine Connectivity and Resilience Research Group.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tooltip Content Mapping
+        const labelDescriptions = {
+            "Conservation as Purpose": "Measures if biodiversity protection is the primary management intent (High for MPAs, Variable for OECMs).",
+            "Strict Legal Gazetting": "Formal recognition via national laws or state-run protected area databases.",
+            "Livelihood/Cultural Goals": "Extent to which social benefits, food security, and spiritual heritage are integrated into core management.",
+            "Positive Conservation Outcome": "Verifiable proof of sustained, long-term biodiversity health (Mandatory for OECMs).",
+            "Governance Flexibility": "Ability to adapt rules based on local community needs and environmental feedback loops.",
+            "Institutional Plurality": "Active involvement and legal recognition of non-state actors (Communities, NGOs, Private)."
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            const tooltipBox = document.getElementById('chart-tooltip');
+
+            const radarData = {
+                labels: [
+                    'Conservation as Purpose',
+                    'Strict Legal Gazetting',
+                    'Livelihood/Cultural Goals',
+                    'Positive Conservation Outcome',
+                    'Governance Flexibility',
+                    'Institutional Plurality'
+                ],
+                datasets: [{
+                    label: 'Marine Protected Area (MPA)',
+                    data: [100, 100, 70, 100, 40, 30],
+                    fill: true,
+                    backgroundColor: 'rgba(14, 165, 233, 0.2)',
+                    borderColor: '#0ea5e9',
+                    pointBackgroundColor: '#0ea5e9',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }, {
+                    label: 'OECM',
+                    data: [40, 30, 90, 100, 90, 100],
+                    fill: true,
+                    backgroundColor: 'rgba(244, 63, 94, 0.2)',
+                    borderColor: '#f43f5e',
+                    pointBackgroundColor: '#f43f5e',
+                    borderWidth: 2,
+                    pointRadius: 4
+                }]
+            };
+
+            const comparisonChart = new Chart(ctx, {
+                type: 'radar',
+                data: radarData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { display: true, color: '#f1f5f9' },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false },
+                            pointLabels: {
+                                font: { size: 10, weight: '600', family: "'Inter', sans-serif" },
+                                color: '#64748b',
+                                padding: 15
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 15, font: { size: 11 } } },
+                        tooltip: { enabled: true }
+                    },
+                    onHover: (event, chartElement) => {
+                        const x = event.x;
+                        const y = event.y;
+                        tooltipBox.style.display = 'none';
+
+                        const scale = comparisonChart.scales.r;
+                        // Manual check for point label hover
+                        scale._pointLabels.forEach((label, index) => {
+                            const labelText = radarData.labels[index];
+                            // Get precise position of the label
+                            const labelPos = scale.getPointPosition(index, scale.drawingArea + 20);
+                            
+                            const dx = x - labelPos.x;
+                            const dy = y - labelPos.y;
+                            
+                            // Check distance for hover activation
+                            if (Math.abs(dx) < 70 && Math.abs(dy) < 20) {
+                                tooltipBox.style.display = 'block';
+                                tooltipBox.style.left = (event.native.pageX + 15) + 'px';
+                                tooltipBox.style.top = (event.native.pageY - 15) + 'px';
+                                tooltipBox.innerHTML = `<strong>${labelText}</strong><br>${labelDescriptions[labelText]}`;
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
