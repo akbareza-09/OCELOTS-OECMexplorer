@@ -364,11 +364,367 @@
             </a>
             <div class="p-4">
                 <h3 class="font-bold text-slate-800 text-sm">Sasi Opening in Ay Island</h3>
-                <p class="text-xs text-slate-500 mt-1">Customary "Sasi" is Traditional closures in Maluku Indonesia are primarily food security and harvest management measures. However, the secondary objective—protecting reef health—is vital for the long-term sustainability of those resources.</p>
+                <p class="text-xs text-slate-500 mt-1">Customary "Sasi" is Traditional closures in Eastern Part of Indonesia are primarily food security and harvest management measures. However, the secondary objective—protecting reef health—is vital for the long-term sustainability of those resources.</p>
             </div>
         </div>
     </div>
 </section>
+<!-- KNOWLEDGE CHECK SECTION -->
+<!-- Paste this entire block just before your </main> closing tag -->
+
+<section id="knowledge-check" class="pb-8">
+    <div class="mb-8 border-l-4 border-coral-500 pl-4">
+        <h2 class="text-2xl font-bold text-ocean-900 uppercase tracking-tight">Knowledge Check</h2>
+        <p class="text-slate-500 text-sm italic">Test your understanding of OECMs and how they differ from MPAs.</p>
+    </div>
+
+    <!-- ACTIVITY 1: Drag & Drop Matching -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 mb-8">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="px-3 py-1 rounded-full bg-ocean-100 text-ocean-700 text-xs font-bold">ACTIVITY 1</span>
+            <h3 class="font-bold text-slate-800 text-lg">Drag & Drop Matching</h3>
+        </div>
+        <p class="text-sm text-slate-500 mb-6">Drag each statement from the left and drop it onto the correct category on the right.</p>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Draggable Items -->
+            <div class="lg:w-1/2">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Statements</p>
+                <div id="drag-source" class="space-y-2">
+                    <div draggable="true" data-answer="MPA" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-ocean-400 hover:bg-ocean-50 transition-all select-none" data-id="1">
+                        Requires formal legal gazetting by the state.
+                    </div>
+                    <div draggable="true" data-answer="OECM" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-coral-400 hover:bg-coral-50 transition-all select-none" data-id="2">
+                        Conservation is a co-benefit, not the primary goal.
+                    </div>
+                    <div draggable="true" data-answer="MPA" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-ocean-400 hover:bg-ocean-50 transition-all select-none" data-id="3">
+                        Biodiversity protection is the explicit primary mandate.
+                    </div>
+                    <div draggable="true" data-answer="OECM" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-coral-400 hover:bg-coral-50 transition-all select-none" data-id="4">
+                        Sasi closures in Maluku, Indonesia.
+                    </div>
+                    <div draggable="true" data-answer="MPA" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-ocean-400 hover:bg-ocean-50 transition-all select-none" data-id="5">
+                        Enforcement relies on state rangers and national regulations.
+                    </div>
+                    <div draggable="true" data-answer="OECM" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-coral-400 hover:bg-coral-50 transition-all select-none" data-id="6">
+                        Recognized based on sustained ecological impact, not legal status.
+                    </div>
+                    <div draggable="true" data-answer="MPA" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-ocean-400 hover:bg-ocean-50 transition-all select-none" data-id="7">
+                        Listed in formal national protected area databases (e.g. WDPA).
+                    </div>
+                    <div draggable="true" data-answer="OECM" class="drag-item bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-700 cursor-grab active:cursor-grabbing hover:border-coral-400 hover:bg-coral-50 transition-all select-none" data-id="8">
+                        Can be governed by indigenous communities, NGOs, or private entities.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drop Zones -->
+            <div class="lg:w-1/2 flex flex-col gap-4">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Drop Zones</p>
+                <!-- MPA Zone -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-3 h-3 rounded-full bg-ocean-500 inline-block"></span>
+                        <span class="font-bold text-ocean-800 text-sm">Marine Protected Area (MPA)</span>
+                    </div>
+                    <div id="drop-MPA" data-zone="MPA" class="drop-zone min-h-[120px] bg-ocean-50 border-2 border-dashed border-ocean-200 rounded-xl p-3 space-y-2 transition-all">
+                        <p class="text-xs text-ocean-300 text-center mt-4 zone-placeholder">Drop MPA statements here</p>
+                    </div>
+                </div>
+                <!-- OECM Zone -->
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-3 h-3 rounded-full bg-coral-500 inline-block"></span>
+                        <span class="font-bold text-coral-800 text-sm">OECM</span>
+                    </div>
+                    <div id="drop-OECM" data-zone="OECM" class="drop-zone min-h-[120px] bg-coral-50 border-2 border-dashed border-coral-200 rounded-xl p-3 space-y-2 transition-all">
+                        <p class="text-xs text-coral-300 text-center mt-4 zone-placeholder">Drop OECM statements here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+            <button id="check-drag" class="bg-ocean-900 hover:bg-ocean-800 text-white px-6 py-2 rounded-xl text-sm font-semibold transition">Check Answers</button>
+            <button id="reset-drag" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-xl text-sm font-semibold transition">Reset</button>
+        </div>
+        <div id="drag-feedback" class="mt-4 hidden"></div>
+    </div>
+
+    <!-- ACTIVITY 2: Fill in the Blank -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="px-3 py-1 rounded-full bg-coral-100 text-coral-700 text-xs font-bold">ACTIVITY 2</span>
+            <h3 class="font-bold text-slate-800 text-lg">Fill in the Blanks</h3>
+        </div>
+        <p class="text-sm text-slate-500 mb-2">Complete the paragraph using words from the word bank. Each word is used once.</p>
+
+        <!-- Word Bank -->
+        <div class="mb-6">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Word Bank</p>
+            <div id="word-bank" class="flex flex-wrap gap-2">
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="geographically defined">geographically defined</span>
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="primary">primary</span>
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="positive and sustained">positive and sustained</span>
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="verified">verified</span>
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="outside">outside</span>
+                <span class="word-chip cursor-pointer bg-seagrass-100 text-seagrass-700 border border-seagrass-200 px-3 py-1 rounded-full text-sm font-medium hover:bg-seagrass-200 transition select-none" data-word="governance">governance</span>
+            </div>
+        </div>
+
+        <!-- Paragraph with Blanks -->
+        <div class="bg-slate-50 rounded-xl p-6 text-sm text-slate-700 leading-loose border border-slate-100">
+            <p>
+                An OECM is a 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[160px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="geographically defined" data-index="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                area located 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[80px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="outside" data-index="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                a formally designated Protected Area. It must have a clear 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[120px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="governance" data-index="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                structure and deliver 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[180px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="positive and sustained" data-index="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                long-term biodiversity outcomes. Unlike an MPA, conservation does not need to be the 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[80px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="primary" data-index="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                objective — but conservation outcomes must be 
+                <span class="blank-slot inline-block border-b-2 border-slate-400 min-w-[80px] mx-1 px-2 py-0.5 rounded bg-white text-center text-ocean-700 font-semibold cursor-pointer hover:border-ocean-400 transition" data-answer="verified" data-index="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                through evidence.
+            </p>
+        </div>
+
+        <div class="mt-6 flex gap-3">
+            <button id="check-blanks" class="bg-ocean-900 hover:bg-ocean-800 text-white px-6 py-2 rounded-xl text-sm font-semibold transition">Check Answers</button>
+            <button id="reset-blanks" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-6 py-2 rounded-xl text-sm font-semibold transition">Reset</button>
+        </div>
+        <div id="blanks-feedback" class="mt-4 hidden"></div>
+    </div>
+</section>
+
+<style>
+    .drag-item.dragging { opacity: 0.4; }
+    .drop-zone.drag-over { border-color: #0ea5e9; background-color: #e0f2fe; }
+    .drag-item.correct { background-color: #f0fdf4; border-color: #22c55e; color: #15803d; }
+    .drag-item.incorrect { background-color: #fff1f2; border-color: #f43f5e; color: #be123c; }
+    .blank-slot.filled { border-color: #0ea5e9; background-color: #e0f2fe; }
+    .blank-slot.correct-blank { border-color: #22c55e; background-color: #f0fdf4; color: #15803d; }
+    .blank-slot.incorrect-blank { border-color: #f43f5e; background-color: #fff1f2; color: #be123c; }
+    .word-chip.used { opacity: 0.35; pointer-events: none; text-decoration: line-through; }
+</style>
+
+<script>
+(function() {
+    // ─── DRAG & DROP ───────────────────────────────────────────────
+    const explanations = {
+        "1": "MPAs must be formally gazetted — recorded in national legal instruments like government regulations or ministerial decrees.",
+        "2": "The defining feature of OECMs: conservation is delivered as a secondary or ancillary outcome, not the stated management goal.",
+        "3": "An MPA's primary mandate is explicitly biodiversity or habitat protection — this is what separates it from an OECM.",
+        "4": "Sasi is a traditional resource closure practiced in Maluku. It qualifies as an OECM because it achieves reef conservation as a co-benefit of harvest management.",
+        "5": "MPAs depend on state enforcement infrastructure — rangers, patrol vessels, and legal penalties — which is why underfunded MPAs become 'paper parks'.",
+        "6": "OECM recognition under CBD Decision 14/8 is outcome-based: the area must demonstrate verified, sustained biodiversity outcomes — legal status alone is insufficient.",
+        "7": "MPAs are listed in formal databases like the World Database on Protected Areas (WDPA), managed by IUCN and UNEP-WCMC.",
+        "8": "OECMs embrace governance plurality — indigenous communities, local organizations, private landowners, and NGOs can all be recognized as OECM managers."
+    };
+
+    const fillExplanations = {
+        "geographically defined": "CBD Decision 14/8 requires a clear spatial boundary — the area must be mappable and delimited.",
+        "outside": "By definition, an OECM cannot already be a Protected Area — it must exist outside the formal PA network.",
+        "governance": "There must be a legitimate, identifiable entity responsible for managing the area — whether state, community, or private.",
+        "positive and sustained": "Outcomes must be both positive (biodiversity is maintained or improving) and sustained (long-term, not temporary).",
+        "primary": "This is the critical distinction from MPAs: conservation intent does not need to be the primary driver — it can be secondary or ancillary.",
+        "verified": "Unlike MPAs which are designation-based, OECMs require evidence of actual conservation outcomes."
+    };
+
+    let draggedItem = null;
+
+    document.querySelectorAll('.drag-item').forEach(item => {
+        item.addEventListener('dragstart', e => {
+            draggedItem = item;
+            setTimeout(() => item.classList.add('dragging'), 0);
+        });
+        item.addEventListener('dragend', () => {
+            item.classList.remove('dragging');
+            draggedItem = null;
+        });
+    });
+
+    document.querySelectorAll('.drop-zone').forEach(zone => {
+        zone.addEventListener('dragover', e => {
+            e.preventDefault();
+            zone.classList.add('drag-over');
+        });
+        zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+        zone.addEventListener('drop', e => {
+            e.preventDefault();
+            zone.classList.remove('drag-over');
+            if (!draggedItem) return;
+            const placeholder = zone.querySelector('.zone-placeholder');
+            if (placeholder) placeholder.remove();
+            zone.appendChild(draggedItem);
+        });
+    });
+
+    document.getElementById('check-drag').addEventListener('click', () => {
+        let correct = 0;
+        const total = 8;
+        let feedbackHTML = '<div class="space-y-2">';
+
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            const zone_name = zone.dataset.zone;
+            zone.querySelectorAll('.drag-item').forEach(item => {
+                const isCorrect = item.dataset.answer === zone_name;
+                item.classList.remove('correct', 'incorrect');
+                item.classList.add(isCorrect ? 'correct' : 'incorrect');
+                if (isCorrect) correct++;
+                const icon = isCorrect ? '✓' : '✗';
+                const color = isCorrect ? 'text-green-700' : 'text-red-600';
+                feedbackHTML += `<div class="text-xs ${color}"><strong>${icon} "${item.textContent.trim()}"</strong> — ${explanations[item.dataset.id]}</div>`;
+            });
+        });
+
+        // Check items still in source
+        document.querySelectorAll('#drag-source .drag-item').forEach(item => {
+            feedbackHTML += `<div class="text-xs text-slate-400">— "${item.textContent.trim()}" was not placed.</div>`;
+        });
+
+        feedbackHTML += '</div>';
+        const score = Math.round((correct / total) * 100);
+        const scoreColor = score >= 75 ? 'bg-green-50 border-green-200 text-green-800' : score >= 50 ? 'bg-yellow-50 border-yellow-200 text-yellow-800' : 'bg-red-50 border-red-200 text-red-800';
+
+        const fb = document.getElementById('drag-feedback');
+        fb.className = `mt-4 p-4 rounded-xl border ${scoreColor}`;
+        fb.innerHTML = `<p class="font-bold text-sm mb-3">Score: ${correct}/${total} (${score}%)</p>${feedbackHTML}`;
+        fb.classList.remove('hidden');
+    });
+
+    document.getElementById('reset-drag').addEventListener('click', () => {
+        const source = document.getElementById('drag-source');
+        document.querySelectorAll('.drag-item').forEach(item => {
+            item.classList.remove('correct', 'incorrect');
+            source.appendChild(item);
+        });
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.innerHTML = `<p class="text-xs ${zone.dataset.zone === 'MPA' ? 'text-ocean-300' : 'text-coral-300'} text-center mt-4 zone-placeholder">Drop ${zone.dataset.zone} statements here</p>`;
+        });
+        const fb = document.getElementById('drag-feedback');
+        fb.className = 'mt-4 hidden';
+        fb.innerHTML = '';
+    });
+
+    // ─── FILL IN THE BLANK ─────────────────────────────────────────
+    let selectedWord = null;
+    let selectedBlank = null;
+    const blankAnswers = {};
+
+    document.querySelectorAll('.word-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            if (chip.classList.contains('used')) return;
+            document.querySelectorAll('.word-chip').forEach(c => c.style.outline = '');
+            selectedWord = chip.dataset.word;
+            chip.style.outline = '2px solid #0d9488';
+
+            // If a blank is already selected, fill it immediately
+            if (selectedBlank !== null) {
+                fillBlank(selectedBlank, selectedWord, chip);
+                selectedWord = null;
+                selectedBlank = null;
+                chip.style.outline = '';
+            }
+        });
+    });
+
+    document.querySelectorAll('.blank-slot').forEach(slot => {
+        slot.addEventListener('click', () => {
+            const idx = slot.dataset.index;
+
+            // If blank already filled, return word to bank
+            if (blankAnswers[idx]) {
+                const oldWord = blankAnswers[idx];
+                document.querySelectorAll('.word-chip').forEach(c => {
+                    if (c.dataset.word === oldWord) c.classList.remove('used');
+                });
+                delete blankAnswers[idx];
+                slot.textContent = '\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0';
+                slot.classList.remove('filled', 'correct-blank', 'incorrect-blank');
+                return;
+            }
+
+            if (selectedWord) {
+                const chip = document.querySelector(`.word-chip[data-word="${selectedWord}"]`);
+                fillBlank(idx, selectedWord, chip);
+                selectedWord = null;
+                selectedBlank = null;
+                document.querySelectorAll('.word-chip').forEach(c => c.style.outline = '');
+            } else {
+                // Highlight selected blank
+                document.querySelectorAll('.blank-slot').forEach(s => s.style.outline = '');
+                slot.style.outline = '2px solid #0ea5e9';
+                selectedBlank = idx;
+            }
+        });
+    });
+
+    function fillBlank(idx, word, chip) {
+        const slot = document.querySelector(`.blank-slot[data-index="${idx}"]`);
+        if (!slot) return;
+        blankAnswers[idx] = word;
+        slot.textContent = word;
+        slot.classList.add('filled');
+        slot.classList.remove('correct-blank', 'incorrect-blank');
+        slot.style.outline = '';
+        if (chip) chip.classList.add('used');
+    }
+
+    document.getElementById('check-blanks').addEventListener('click', () => {
+        let correct = 0;
+        const total = 6;
+        let feedbackHTML = '<div class="space-y-2">';
+
+        document.querySelectorAll('.blank-slot').forEach(slot => {
+            const idx = slot.dataset.index;
+            const answer = slot.dataset.answer;
+            const given = blankAnswers[idx];
+            slot.classList.remove('correct-blank', 'incorrect-blank', 'filled');
+
+            if (given === answer) {
+                correct++;
+                slot.classList.add('correct-blank');
+                feedbackHTML += `<div class="text-xs text-green-700"><strong>✓ "${answer}"</strong> — ${fillExplanations[answer]}</div>`;
+            } else {
+                slot.classList.add('incorrect-blank');
+                const givenText = given ? `You answered: "${given}". ` : 'Not answered. ';
+                feedbackHTML += `<div class="text-xs text-red-600"><strong>✗ Correct: "${answer}"</strong> — ${givenText}${fillExplanations[answer]}</div>`;
+            }
+        });
+
+        feedbackHTML += '</div>';
+        const score = Math.round((correct / total) * 100);
+        const scoreColor = score >= 75 ? 'bg-green-50 border-green-200 text-green-800' : score >= 50 ? 'bg-yellow-50 border-yellow-200 text-yellow-800' : 'bg-red-50 border-red-200 text-red-800';
+
+        const fb = document.getElementById('blanks-feedback');
+        fb.className = `mt-4 p-4 rounded-xl border ${scoreColor}`;
+        fb.innerHTML = `<p class="font-bold text-sm mb-3">Score: ${correct}/${total} (${score}%)</p>${feedbackHTML}`;
+        fb.classList.remove('hidden');
+    });
+
+    document.getElementById('reset-blanks').addEventListener('click', () => {
+        Object.keys(blankAnswers).forEach(k => delete blankAnswers[k]);
+        document.querySelectorAll('.blank-slot').forEach(slot => {
+            slot.textContent = '\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0';
+            slot.classList.remove('filled', 'correct-blank', 'incorrect-blank');
+            slot.style.outline = '';
+        });
+        document.querySelectorAll('.word-chip').forEach(c => {
+            c.classList.remove('used');
+            c.style.outline = '';
+        });
+        selectedWord = null;
+        selectedBlank = null;
+        const fb = document.getElementById('blanks-feedback');
+        fb.className = 'mt-4 hidden';
+        fb.innerHTML = '';
+    });
+})();
+</script>
+</main>
     <footer class="bg-slate-900 text-slate-400 py-12 text-center text-xs">
         <div class="max-w-6xl mx-auto px-4">
             <p>© 2026. Faculty of Biology Universitas Gadjah Mada - Ecology and Conservation Lab - Marine Connectivity and Resilience Research Group.</p>
